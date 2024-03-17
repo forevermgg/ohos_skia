@@ -18,7 +18,7 @@ goToOpenHarmonyWorkSpace() {
     cd "${workspace}/openharmony" || exit
 }
 
-checkout() {
+build() {
     goToWorkSpace
     echo "当前目录: $(pwd)"
 
@@ -29,4 +29,4 @@ checkout() {
     # ./build.sh --product-name rk3568 --build-target skia_canvaskit --no-prebuilt-sdk
 }
 
-checkout
+build
