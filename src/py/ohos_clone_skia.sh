@@ -25,7 +25,7 @@ clone() {
       git fetch origin
     else
       echo "> Cloning"
-      git clone https://github.com/JetBrains/skia.git
+      git clone https://skia.googlesource.com/skia
       cd "skia"
       git fetch origin
     fi
