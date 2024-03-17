@@ -29,6 +29,21 @@ clone() {
       cd "skia"
       git fetch origin
     fi
+
+    # 切换到指定commit
+    echo "> Checking out $commit"
+    # git -c advice.detachedHead=false checkout $commit
+
+
+    # 更新git依赖
+    echo "> Running tools/git-sync-deps"
+    if [ "$(uname)" == "MINGW64_NT-10.0" ]; then
+      # python3 tools/git-sync-deps
+      echo "> tools/git-sync-deps"
+    else
+      # python3 tools/git-sync-deps
+      echo "> tools/git-sync-deps"
+    fi
 }
 
 clone
