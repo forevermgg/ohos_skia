@@ -167,3 +167,7 @@ repo
 
 /src/py/ohos_checkout.py
 */*/.DS_Store
+
+skia
+ninja
+ninja.*
