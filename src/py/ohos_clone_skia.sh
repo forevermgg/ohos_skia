@@ -13,9 +13,16 @@ goToWorkSpace() {
   cd "${workspace}" || exit
 }
 
+goToSkiaWorkSpace() {
+  cd "${workspace}/skia" || exit
+}
+
 clone() {
     goToWorkSpace
     echo "当前目录: $(pwd)"
+    goToSkiaWorkSpace
+    echo "Skia目录: $(pwd)"
+    goToWorkSpace
     # 克隆或更新Skia仓库
     if [ -d "skia" ]; then
       echo "> Fetching"
