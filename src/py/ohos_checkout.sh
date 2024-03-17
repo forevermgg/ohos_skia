@@ -103,6 +103,12 @@ checkout() {
 
     goToWorkSpace
     echo "当前目录: $(pwd)"
+
+    goToOpenHarmonyWorkSpace
+    echo "当前目录: $(pwd)"
+    # ./third_party/skia/auto_build/modify_file_to_build_libskia.sh
+    # build/prebuilts_download.sh
+    # ./build.sh --product-name rk3568 --build-target skia_canvaskit --no-prebuilt-sdk
 }
 
 checkout

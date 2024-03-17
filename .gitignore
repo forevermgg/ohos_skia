@@ -162,6 +162,7 @@ cython_debug/
 openharmony
 repo
 .repo
+.idea
 
 
 /src/py/ohos_checkout.py
