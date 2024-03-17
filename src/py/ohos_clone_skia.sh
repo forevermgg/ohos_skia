@@ -26,14 +26,14 @@ clone() {
     # 克隆或更新Skia仓库
     if [ -d "skia" ]; then
       echo "> Fetching"
-      cd "skia"
+      cd "skia" || exit
       git reset --hard
       git clean -d -f
       git fetch origin
     else
       echo "> Cloning"
       git clone https://skia.googlesource.com/skia
-      cd "skia"
+      cd "skia" || exit
       git fetch origin
     fi
 
