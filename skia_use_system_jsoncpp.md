@@ -1,3 +1,10 @@
+BUILD.gn
+```
+public_deps = [
+      "//third_party/jsoncpp",
+]
+```
+
 DEPS
 ```
  "third_party/externals/jsoncpp"       : "https://chromium.googlesource.com/external/github.com/open-source-parsers/jsoncpp.git@1.0.0",
