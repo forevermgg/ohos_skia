@@ -75,3 +75,64 @@ source_set("jsoncpp") {
   include_dirs = [ "source/src/lib_json" ]
 }
 ```
+
+
+```
+optional("fontmgr_ohos") {
+    enabled = skia_enable_fontmgr_ohos
+    public = [
+      "src/ports/skia_ohos/FontConfig_ohos.h",
+      "src/ports/skia_ohos/FontInfo_ohos.h",
+      "src/ports/skia_ohos/SkFontMgr_ohos.h",
+      "src/ports/skia_ohos/SkFontStyleSet_ohos.h",
+      "src/ports/skia_ohos/SkTypeface_ohos.h",
+    ]
+    sources = [
+      "src/ports/skia_ohos/FontConfig_ohos.cpp",
+      "src/ports/skia_ohos/SkFontMgr_ohos.cpp",
+      "src/ports/skia_ohos/SkFontMgr_ohos_factory.cpp",
+      "src/ports/skia_ohos/SkFontStyleSet_ohos.cpp",
+      "src/ports/skia_ohos/SkTypeface_ohos.cpp",
+    ]
+
+    include_dirs = [
+      ".",
+      "include/private",
+      "include/core",
+      "src/core",
+      "ports",
+      "ports/skia_ohos",
+    ]
+
+    deps = [
+      ":fontmgr_symbol_load",
+      ":typeface_freetype",
+      "//third_party/expat",
+      "//third_party/jsoncpp",
+    ]
+    # deps += [ ":ohos_fontconfig.json" ]
+}
+
+optional("fontmgr_symbol_load") {
+  enabled = skia_enable_fontmgr_ohos || skia_enable_fontmgr_win ||
+            skia_use_fonthost_mac
+  include_dirs = [
+      ".",
+      "include/private",
+      "include/core",
+      "src/core",
+      "ports",
+      "ports/skia_ohos",
+    ]
+  deps = [
+    ":typeface_freetype",
+    "//third_party/expat",
+    "//third_party/jsoncpp",
+  ]
+  # deps += [ ":ohos_fontconfig.json" ]
+  public = [ "src/ports/skia_ohos/HmSymbolConfig_ohos.h" ]
+  sources = [ "src/ports/skia_ohos/HmSymbolConfig_ohos.cpp" ]
+}
+```
+![image](https://github.com/forevermgg/ohos_skia/assets/93423027/071d0c0f-dadf-41f7-a67d-b4cada0a7bb9)
+![image](https://github.com/forevermgg/ohos_skia/assets/93423027/649b9af9-1809-494c-aaaf-4029992fb734)
